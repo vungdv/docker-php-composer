@@ -26,10 +26,3 @@ sed -i 's/VirtualHost \*:80/VirtualHost \*:8080/' \
 sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
 
 USER www-data
-
-ONBUILD COPY ./composer.json /var/www/html/
-
-ONBUILD RUN composer install && \
-rm -rf /var/www/html/composer-cache
-
-ONBUILD COPY ./public /var/www/html/public
